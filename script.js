@@ -54,7 +54,7 @@ function initQuiz() {
     updateButtons();
 }
 
-// Create new question element for settings panel
+// Create a new question element for settings panel
 function createQuestionElement(question = null) {
     const questionDiv = document.createElement('div');
     questionDiv.className = 'question-item';
