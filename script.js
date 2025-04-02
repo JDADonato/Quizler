@@ -217,20 +217,37 @@ function updateQuestion() {
     const currentQuestion = currentQuestions[currentIndex];
     questionText.textContent = currentQuestion.question;
     
+    // Create an array of option indices and shuffle them
+    const optionIndices = [0, 1, 2, 3];
+    const shuffledIndices = optionIndices.sort(() => Math.random() - 0.5);
+    
+    // Store the mapping of shuffled indices to original indices
+    const originalToShuffled = {};
+    shuffledIndices.forEach((shuffled, original) => {
+        originalToShuffled[original] = shuffled;
+    });
+    
     options.forEach((option, index) => {
-        option.textContent = currentQuestion.options[index];
+        const originalIndex = shuffledIndices[index];
+        option.textContent = currentQuestion.options[originalIndex];
         option.classList.remove('correct', 'incorrect', 'selected');
         option.disabled = isAnswered;
         option.style.display = '';
+        
+        // Store the original index as a data attribute
+        option.dataset.originalIndex = originalIndex;
     });
 
     // Show previous answer if exists
     if (answers[currentIndex] !== null) {
         const previousAnswer = answers[currentIndex];
-        options[previousAnswer].classList.add(
+        const shuffledPreviousAnswer = originalToShuffled[previousAnswer];
+        const shuffledCorrectAnswer = originalToShuffled[currentQuestion.correctAnswer];
+        
+        options[shuffledPreviousAnswer].classList.add(
             previousAnswer === currentQuestion.correctAnswer ? 'correct' : 'incorrect'
         );
-        options[currentQuestion.correctAnswer].classList.add('correct');
+        options[shuffledCorrectAnswer].classList.add('correct');
         explanationText.textContent = currentQuestion.explanation;
         isAnswered = true;
         options.forEach(option => option.disabled = true);
@@ -294,7 +311,8 @@ options.forEach((option, index) => {
     option.addEventListener('click', () => {
         if (isAnswered || isQuizComplete) return;
         
-        selectedAnswer = index;
+        // Get the original index from the data attribute
+        selectedAnswer = parseInt(option.dataset.originalIndex);
         options.forEach(opt => opt.classList.remove('selected'));
         option.classList.add('selected');
         updateButtons();
@@ -317,14 +335,15 @@ nextBtn.addEventListener('click', () => {
         
         // Show the correct/incorrect feedback
         options.forEach((option, index) => {
-            if (index === selectedAnswer) {
+            const originalIndex = parseInt(option.dataset.originalIndex);
+            if (originalIndex === selectedAnswer) {
                 if (selectedAnswer === currentQuestion.correctAnswer) {
                     option.classList.add('correct');
                 } else {
                     option.classList.add('incorrect');
                 }
             }
-            if (index === currentQuestion.correctAnswer && index !== selectedAnswer) {
+            if (originalIndex === currentQuestion.correctAnswer && originalIndex !== selectedAnswer) {
                 option.classList.add('correct');
             }
         });
