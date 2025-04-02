@@ -21,7 +21,26 @@
 
       <div id="settings-panel" class="settings-panel">
         <div class="settings-content">
-          <h2>Quiz Settings</h2>
+          <div class="settings-header">
+            <h2>Quiz Settings</h2>
+            <button id="cancel-settings" class="cancel-btn">
+              <i class="bx bx-x"></i> Cancel
+            </button>
+          </div>
+          
+          <div class="question-bank-management">
+            <h3>Question Bank Management</h3>
+            <div class="bank-controls">
+              <input type="text" id="bank-name" placeholder="Enter question bank name">
+              <button id="save-bank">Save Question Bank</button>
+              <select id="bank-selector">
+                <option value="">Select a question bank</option>
+              </select>
+              <button id="load-bank">Load Question Bank</button>
+              <button id="delete-bank">Delete Bank</button>
+            </div>
+          </div>
+
           <div class="setting-group">
             <label for="quiz-title-input">Quiz Title</label>
             <input
@@ -64,9 +83,6 @@ Note: Add an asterisk (*) after the correct answer option."
             </button>
           </div>
           <div class="settings-buttons">
-            <button id="cancel-settings" class="cancel-btn">
-              <i class="bx bx-x"></i> Cancel
-            </button>
             <button id="save-settings" class="save-btn">
               <i class="bx bx-save"></i> Save
             </button>
