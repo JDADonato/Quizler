@@ -1,15 +1,15 @@
 let questionBank = [
     {
-        question: "What is the capital of France?",
-        options: ["London", "Berlin", "Paris", "Madrid"],
+        question: "test question 1",
+        options: ["options", "options", "options", "options"],
         correctAnswer: 2,
-        explanation: "Paris is the capital city of France, known for its iconic Eiffel Tower and rich cultural heritage."
+        explanation: "explanation"
     },
     {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Venus", "Mars", "Jupiter", "Saturn"],
-        correctAnswer: 1,
-        explanation: "Mars is called the Red Planet because of its reddish appearance, caused by iron oxide (rust) on its surface."
+        question: "test question 2",
+        options: ["options", "options", "options", "options"],
+        correctAnswer: 2,
+        explanation: "explanation"
     }
 ];
 
@@ -39,6 +39,13 @@ const addQuestionBtn = document.getElementById('add-question');
 const saveSettingsBtn = document.getElementById('save-settings');
 const cancelSettingsBtn = document.getElementById('cancel-settings');
 const quizTitleDisplay = document.getElementById('quiz-title-display');
+
+// Question Bank Management
+const bankNameInput = document.getElementById('bank-name');
+const saveBankBtn = document.getElementById('save-bank');
+const bankSelector = document.getElementById('bank-selector');
+const loadBankBtn = document.getElementById('load-bank');
+const deleteBankBtn = document.getElementById('delete-bank');
 
 // Initialize the quiz
 function initQuiz() {
@@ -146,9 +153,10 @@ function saveQuestionsFromSettings() {
 
 // Show settings panel
 settingsBtn.addEventListener('click', () => {
-    console.log('Settings button clicked'); // Debug log
+    console.log('Settings button clicked');
     quizTitleInput.value = quizTitleDisplay.textContent;
     loadQuestionsToSettings();
+    loadSavedBanks();
     settingsPanel.classList.add('active');
 });
 
@@ -507,6 +515,95 @@ function createParsedQuestionElement(question, options, correctOption, explanati
     
     return questionDiv;
 }
+
+// Load saved question banks from localStorage
+function loadSavedBanks() {
+    const savedBanks = JSON.parse(localStorage.getItem('questionBanks') || '{}');
+    bankSelector.innerHTML = '<option value="">Select a question bank</option>';
+    
+    Object.keys(savedBanks).forEach(bankName => {
+        const option = document.createElement('option');
+        option.value = bankName;
+        option.textContent = bankName;
+        bankSelector.appendChild(option);
+    });
+}
+
+// Save current question bank
+saveBankBtn.addEventListener('click', () => {
+    const bankName = bankNameInput.value.trim();
+    if (!bankName) {
+        alert('Please enter a name for the question bank');
+        return;
+    }
+    
+    // Get current questions from the settings panel
+    saveQuestionsFromSettings();
+    
+    // Save to localStorage
+    const savedBanks = JSON.parse(localStorage.getItem('questionBanks') || '{}');
+    savedBanks[bankName] = {
+        questions: questionBank,
+        title: quizTitleDisplay.textContent
+    };
+    localStorage.setItem('questionBanks', JSON.stringify(savedBanks));
+    
+    // Update selector
+    loadSavedBanks();
+    bankNameInput.value = '';
+});
+
+// Load selected question bank
+loadBankBtn.addEventListener('click', () => {
+    const selectedBank = bankSelector.value;
+    if (!selectedBank) {
+        alert('Please select a question bank to load');
+        return;
+    }
+    
+    const savedBanks = JSON.parse(localStorage.getItem('questionBanks') || '{}');
+    const bank = savedBanks[selectedBank];
+    
+    if (bank) {
+        questionBank = bank.questions;
+        quizTitleDisplay.textContent = bank.title;
+        quizTitleInput.value = bank.title;
+        
+        // Update the questions in the settings panel
+        loadQuestionsToSettings();
+        
+        // Reset quiz state
+        currentQuestions = [...questionBank];
+        currentIndex = 0;
+        selectedAnswer = null;
+        answers = new Array(questionBank.length).fill(null);
+        isAnswered = false;
+        isQuizComplete = false;
+        
+        // Update quiz display
+        updateQuestion();
+        updateButtons();
+    }
+});
+
+// Delete selected question bank
+deleteBankBtn.addEventListener('click', () => {
+    const selectedBank = bankSelector.value;
+    if (!selectedBank) {
+        alert('Please select a question bank to delete');
+        return;
+    }
+    
+    if (confirm(`Are you sure you want to delete the question bank "${selectedBank}"?`)) {
+        const savedBanks = JSON.parse(localStorage.getItem('questionBanks') || '{}');
+        delete savedBanks[selectedBank];
+        localStorage.setItem('questionBanks', JSON.stringify(savedBanks));
+        loadSavedBanks();
+    }
+});
+
+// Initialize saved banks when page loads
+loadSavedBanks();
 
 // Initialize the quiz when the page loads
 initQuiz(); 
