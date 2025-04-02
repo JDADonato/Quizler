@@ -31,13 +31,25 @@
           <div class="question-bank-management">
             <h3>Question Bank Management</h3>
             <div class="bank-controls">
-              <input type="text" id="bank-name" placeholder="Enter question bank name">
-              <button id="save-bank">Save Question Bank</button>
-              <select id="bank-selector">
-                <option value="">Select a question bank</option>
-              </select>
-              <button id="load-bank">Load Question Bank</button>
-              <button id="delete-bank">Delete Bank</button>
+              <div class="bank-input-group">
+                <input type="text" id="bank-name" placeholder="Enter question bank name">
+                <button id="save-bank">
+                  <i class="bx bx-save"></i> Save Question Bank
+                </button>
+              </div>
+              <div class="bank-select-group">
+                <select id="bank-selector">
+                  <option value="">Select a question bank</option>
+                </select>
+                <div class="bank-actions">
+                  <button id="load-bank">
+                    <i class="bx bx-folder-open"></i> Load
+                  </button>
+                  <button id="delete-bank">
+                    <i class="bx bx-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
