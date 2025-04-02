@@ -157,12 +157,13 @@
         transform: none;
     }
 
-    #shuffle-btn {
-        background-color: #34a853;
+ 
+    #shuffle-btn:hover {
+        transform: none;
     }
 
-    #shuffle-btn:hover {
-        background-color: #2d8a46;
+    #shuffle-btn i {
+        color: #1557b0;
     }
 
     .header {
@@ -170,6 +171,42 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
+    }
+
+    .header-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .header-btn {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-btn i {
+        color: #2d3436;
+    }
+
+    .header-btn:hover {
+        transform: rotate(70deg);
+        background-color: #e9ecef;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #settings-btn i {
+        color: #1a73e8;
     }
 
     .settings-btn {
@@ -184,7 +221,7 @@
     }
 
     .settings-btn:hover {
-        transform: rotate(90deg);
+        /* transform: rotate(0deg); */
     }
 
     .settings-panel {
