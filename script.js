@@ -1,15 +1,15 @@
 let questionBank = [
     {
-        question: "test question 1",
-        options: ["options", "options", "options", "options"],
+        question: "What is the capital of France?",
+        options: ["London", "Berlin", "Paris", "Madrid"],
         correctAnswer: 2,
-        explanation: "explanation"
+        explanation: "Paris is the capital city of France, known for its iconic Eiffel Tower and rich cultural heritage."
     },
     {
-        question: "test question 2",
-        options: ["options", "options", "options", "options"],
-        correctAnswer: 2,
-        explanation: "explanation"
+        question: "Which planet is known as the Red Planet?",
+        options: ["Venus", "Mars", "Jupiter", "Saturn"],
+        correctAnswer: 1,
+        explanation: "Mars is called the Red Planet because of its reddish appearance, caused by iron oxide (rust) on its surface."
     }
 ];
 
