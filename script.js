@@ -1,18 +1,3 @@
-let questionBank = [
-    {
-        question: "What is the capital of France?",
-        options: ["London", "Berlin", "Paris", "Madrid"],
-        correctAnswer: 2,
-        explanation: "Paris is the capital city of France, known for its iconic Eiffel Tower and rich cultural heritage."
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Venus", "Mars", "Jupiter", "Saturn"],
-        correctAnswer: 1,
-        explanation: "Mars is called the Red Planet because of its reddish appearance, caused by iron oxide (rust) on its surface."
-    }
-];
-
 let currentQuestions = [...questionBank];
 let currentIndex = 0;
 let selectedAnswer = null;
