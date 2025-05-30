@@ -277,8 +277,294 @@ let questionBank = [
         options: ["Customer invoicing", "Cost allocation to receivers", "Vendor payment processing", "Employee payroll calculation"],
         correctAnswer: 1,
         explanation: "Actual costs are settled to materials, cost centers, or projects."
-    }
+    },
     // Note: Add 55 more questions following the same pattern
+        // Module 1: SAP S/4HANA Fundamentals (Additional)
+    {
+        question: "What was the first SAP product to use Windows NT?",
+        options: ["SAP R/2", "SAP R/3", "Business Suite 7", "SAP HANA"],
+        correctAnswer: 1,
+        explanation: "SAP partnered with Microsoft in 1993/94 to connect R/3 with Windows NT."
+    },
+    {
+        question: "Which feature enables real-time analytics on current transactional data?",
+        options: ["OLAP + OLTP separation", "Column Store processing", "OLAP + OLTP integration", "Blockchain validation"],
+        correctAnswer: 2,
+        explanation: "S/4HANA combines OLAP and OLTP for real-time analytics on live data."
+    },
+    {
+        question: "What is the primary purpose of SAP Data Hub?",
+        options: ["User interface design", "Data orchestration across sources", "Payment processing", "Production scheduling"],
+        correctAnswer: 1,
+        explanation: "Data Hub provides orchestration across heterogeneous data sources."
+    },
+    {
+        question: "Which deployment option provides automatic quarterly innovation upgrades?",
+        options: ["On-Premise", "Hybrid", "Private Cloud", "Cloud Edition"],
+        correctAnswer: 3,
+        explanation: "Cloud Edition includes automatic quarterly innovation updates."
+    },
+    {
+        question: "What does the 'Run Simple' philosophy emphasize?",
+        options: ["Reduced customization", "Streamlined processes", "Lower IT costs", "All of the above"],
+        correctAnswer: 3,
+        explanation: "'Run Simple' focuses on efficiency, simplicity and innovation."
+    },
+    {
+        question: "Which table is eliminated in S/4HANA's simplified data model?",
+        options: ["Aggregate tables", "MATDOC", "VBAK", "BKPF"],
+        correctAnswer: 0,
+        explanation: "Aggregate tables are removed due to denormalized MATDOC table."
+    },
+    {
+        question: "What is the core function of SAP Cloud Platform?",
+        options: ["Database storage", "App development and extension", "HR management", "Tax calculation"],
+        correctAnswer: 1,
+        explanation: "It's a digital platform for new app development and extensions."
+    },
+    {
+        question: "Which component provides personalized shopping experiences?",
+        options: ["SAP Commerce Cloud", "SAP Service Cloud", "SAP Marketing Cloud", "SAP Sales Cloud"],
+        correctAnswer: 0,
+        explanation: "Commerce Cloud enables personalized cross-touchpoint experiences."
+    },
+    {
+        question: "What does transactional data represent?",
+        options: ["Long-term reference information", "System record of business events", "Organizational hierarchy", "Financial statements"],
+        correctAnswer: 1,
+        explanation: "Transaction data records business events like sales orders."
+    },
+
+    // Module 2: Sales and Distribution (Additional)
+    {
+        question: "What determines the shipping point in sales order processing?",
+        options: ["Customer country", "Material weight", "Loading group + plant", "Incoterms"],
+        correctAnswer: 2,
+        explanation: "Shipping point is determined by loading group and delivering plant."
+    },
+    {
+        question: "When is the billing document created?",
+        options: ["During goods receipt", "Upon sales order entry", "After delivery confirmation", "During payment processing"],
+        correctAnswer: 2,
+        explanation: "Billing documents reference sales orders or deliveries."
+    },
+    {
+        question: "What is the purpose of schedule lines?",
+        options: ["Track partial deliveries", "Calculate taxes", "Store customer addresses", "Manage credit limits"],
+        correctAnswer: 0,
+        explanation: "Schedule lines handle delivery quantities and dates."
+    },
+    {
+        question: "Which output medium is used for invoices?",
+        options: ["EDI", "Fax", "All of the above", "Printed copy only"],
+        correctAnswer: 2,
+        explanation: "Output supports multiple media including EDI, email, and print."
+    },
+    {
+        question: "What does 'GR Blocked Stock' indicate?",
+        options: ["Quality inspection needed", "Payment received", "Customer return", "Vendor dispute"],
+        correctAnswer: 0,
+        explanation: "Goods Receipt Blocked Stock requires quality inspection."
+    },
+    {
+        question: "Which document records the business transaction?",
+        options: ["Master Data", "Organizational Data", "Transaction Data", "Condition Record"],
+        correctAnswer: 2,
+        explanation: "Transaction data is the system record of business events."
+    },
+    {
+        question: "What is updated during Goods Issue?",
+        options: ["Customer credit limit", "General Ledger accounts", "Material price", "Vendor evaluation"],
+        correctAnswer: 1,
+        explanation: "Goods Issue updates G/L accounts for inventory and COGS."
+    },
+    {
+        question: "Which process includes picking, packing and posting?",
+        options: ["Billing", "Shipping", "Pricing", "Credit check"],
+        correctAnswer: 1,
+        explanation: "Shipping process manages physical fulfillment steps."
+    },
+    {
+        question: "What replaces traditional customer transactions like VD01?",
+        options: ["VA01", "BP", "FB60", "MM01"],
+        correctAnswer: 1,
+        explanation: "Business Partner (BP) consolidates customer/vendor management."
+    },
+
+    // Module 3: Materials Management (Additional)
+    {
+        question: "What is created automatically during Goods Receipt?",
+        options: ["Purchase Order", "Material Document", "Invoice", "Payment advice"],
+        correctAnswer: 1,
+        explanation: "Goods Receipt generates material, accounting and controlling documents."
+    },
+    {
+        question: "Which field was extended from 18 to 40 characters?",
+        options: ["Vendor number", "Plant code", "Material number", "Storage location"],
+        correctAnswer: 2,
+        explanation: "Material number length increased for flexibility."
+    },
+    {
+        question: "What does MIGO replace?",
+        options: ["ME21N", "MB01/MB1A", "MM01", "MRP1"],
+        correctAnswer: 1,
+        explanation: "MIGO consolidates goods movement transactions."
+    },
+    {
+        question: "Which process verifies incoming invoices against POs?",
+        options: ["Goods Receipt", "Invoice Verification", "Vendor Evaluation", "Payment Run"],
+        correctAnswer: 1,
+        explanation: "Invoice Verification checks prices, quantities and arithmetic."
+    },
+    {
+        question: "What is the purpose of a source list?",
+        options: ["Track finished goods", "Define approved vendors", "Calculate taxes", "Manage HR positions"],
+        correctAnswer: 1,
+        explanation: "Source lists specify allowed procurement sources per material."
+    },
+    {
+        question: "Which agreement type includes delivery schedules?",
+        options: ["Value Contract", "Quantity Contract", "Scheduling Agreement", "Blanket PO"],
+        correctAnswer: 2,
+        explanation: "Scheduling Agreements spread quantities over delivery dates."
+    },
+    {
+        question: "What is evaluated in vendor performance scoring?",
+        options: ["Price, Quality, Delivery", "Location, Size, Revenue", "IT systems, Certifications", "Employee count, Facilities"],
+        correctAnswer: 0,
+        explanation: "Vendor evaluation uses price, quality and delivery criteria."
+    },
+    {
+        question: "Which movement type represents returns to vendors?",
+        options: ["101", "122", "231", "561"],
+        correctAnswer: 1,
+        explanation: "Movement type 122 handles return deliveries."
+    },
+    {
+        question: "What triggers automatic Purchase Requisitions?",
+        options: ["MRP runs", "Sales orders", "Both A and B", "Manual entry only"],
+        correctAnswer: 2,
+        explanation: "Requisitions can be created manually or automatically."
+    },
+
+    // Module 4: Production Planning (Additional)
+    {
+        question: "What is exploded during MRP?",
+        options: ["Work centers", "Bill of Materials", "Cost centers", "Profit centers"],
+        correctAnswer: 1,
+        explanation: "BOM explosion calculates component requirements."
+    },
+    {
+        question: "Which confirmation data is essential for planning?",
+        options: ["Employee names", "Canteen usage", "Operation times", "Break durations"],
+        correctAnswer: 2,
+        explanation: "Activity times (setup, machine) enable realistic planning."
+    },
+    {
+        question: "What does MTS stand for?",
+        options: ["Material Tracking System", "Make-To-Stock", "Machine Time Standard", "Maintenance Task Schedule"],
+        correctAnswer: 1,
+        explanation: "Make-To-Stock uses independent requirements planning."
+    },
+    {
+        question: "Where is standard time data stored?",
+        options: ["Material Master", "Work Center", "Routing", "Both B and C"],
+        correctAnswer: 3,
+        explanation: "Routings and work centers store time formulas."
+    },
+    {
+        question: "What is settled during order settlement?",
+        options: ["Customer invoices", "Actual production costs", "Vendor payments", "Tax liabilities"],
+        correctAnswer: 1,
+        explanation: "Actual costs are settled to cost objects."
+    },
+    {
+        question: "Which strategy uses planning material?",
+        options: ["Strategy 10", "Strategy 20", "Strategy 50", "Strategy 60"],
+        correctAnswer: 3,
+        explanation: "Strategy 60 (Planning w/ Planning Material) uses configurable products."
+    },
+    {
+        question: "What triggers capacity planning?",
+        options: ["Production orders", "HR hiring", "Sales forecasts", "All of the above"],
+        correctAnswer: 0,
+        explanation: "Production orders generate capacity requirements."
+    },
+    {
+        question: "Which UI replaces Engineering Workbench?",
+        options: ["SAP GUI", "Fiori/Web UI", "Adobe Forms", "BRFplus"],
+        correctAnswer: 1,
+        explanation: "Fiori/Web UIs maintain BOMs/routings in S/4HANA."
+    },
+    {
+        question: "What is updated during production Goods Receipt?",
+        options: ["Stock quantity", "Standard price", "Vendor account", "Customer credit"],
+        correctAnswer: 0,
+        explanation: "Finished goods inventory increases upon Goods Receipt."
+    },
+
+    // Cross-Module Integration
+    {
+        question: "Which integration connects SD-FI-MM?",
+        options: ["Order-to-Cash", "Procure-to-Pay", "Both A and B", "Plan-to-Produce"],
+        correctAnswer: 2,
+        explanation: "O2C and P2P integrate sales, materials and finance."
+    },
+    {
+        question: "What triggers material reservations in PP?",
+        options: ["Sales orders", "Production orders", "Purchase orders", "Goods receipts"],
+        correctAnswer: 1,
+        explanation: "Production orders reserve BOM components."
+    },
+    {
+        question: "Which master data is shared across SD-MM-PP?",
+        options: ["Customer Master", "Material Master", "Vendor Master", "Condition Records"],
+        correctAnswer: 1,
+        explanation: "Material Master is used in sales, procurement and production."
+    },
+    {
+        question: "What updates during Goods Movement?",
+        options: ["Inventory accounts", "Material documents", "Both A and B", "Customer credit"],
+        correctAnswer: 2,
+        explanation: "Goods movements create material docs and update FI."
+    },
+    {
+        question: "Which solution integrates with S/4HANA for HR?",
+        options: ["Ariba", "SuccessFactors", "Hybris", "Concur"],
+        correctAnswer: 1,
+        explanation: "SuccessFactors handles human capital management."
+    },
+    {
+        question: "What is the primary SAP Fiori app category for analytics?",
+        options: ["Transactional", "Factsheet", "Analytical", "Guided"],
+        correctAnswer: 2,
+        explanation: "Analytical apps provide visual business data overviews."
+    },
+    {
+        question: "Which table stores universal document data?",
+        options: ["VBAK", "MATDOC", "BKPF", "CDHDR"],
+        correctAnswer: 1,
+        explanation: "MATDOC consolidates document data across functions."
+    },
+    {
+        question: "What enables real-time inventory management?",
+        options: ["No aggregates", "HANA processing", "Both A and B", "Batch jobs"],
+        correctAnswer: 2,
+        explanation: "In-memory processing without aggregates enables real-time."
+    },
+    {
+        question: "Which process uses condition master data?",
+        options: ["SD Pricing", "MM Purchasing", "Both A and B", "PP Scheduling"],
+        correctAnswer: 2,
+        explanation: "Condition records store prices for sales and procurement."
+    },
+    {
+        question: "What is a key benefit of the Business Partner approach?",
+        options: ["Reduced data redundancy", "Longer material numbers", "More release cycles", "Hardware dependence"],
+        correctAnswer: 0,
+        explanation: "BP consolidates customer/vendor master data management."
+    }
+];
 ];
 
 // Total questions: 25 shown (Add 55 more to reach 80)
