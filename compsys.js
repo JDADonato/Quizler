@@ -565,6 +565,6 @@ let questionBank = [
         explanation: "BP consolidates customer/vendor master data management."
     }
 ];
-];
+
 
 // Total questions: 25 shown (Add 55 more to reach 80)
